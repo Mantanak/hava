@@ -1,0 +1,8 @@
+# CLOUD_IMG: This file was created/modified by the Cloud Image build process
+UUID=b6585f04-5b1d-4c55-aea5-27946d8c8150	/	 ext4	discard,commit=30,errors=remount-ro	0 1
+LABEL=BOOT	/boot	ext4	defaults,discard	0 2
+UUID=B8E1-3A86	/boot/efi	vfat	umask=0077	0 1
+# Added by CIS Linux Build Kit
+tmpfs   /tmp    tmpfs   defaults,noexec,nosuid,nodev 0   0
+/tmp /var/tmp none bind 0 0
+tmpfs /dev/shm tmpfs defaults,noexec,nodev,nosuid 0 0

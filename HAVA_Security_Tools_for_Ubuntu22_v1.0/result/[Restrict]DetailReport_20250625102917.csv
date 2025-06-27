@@ -1,0 +1,161 @@
+#########################################################
+###Script version 1.0 / Baseline version 1.0###
+!!Restricted - disclose with authorization!!
+Date,'25-06-2025
+Time,'10:29
+Computer Name,vm-golden-image-pci
+IP Adress,10.84.110.24/28
+Operating System Name,Ubuntu 24.04.2 LTS_Linux 6.11.0-1015-azure
+System Name,vm-golden-image-pci
+Node Name,vm-golden-image-pci
+Audit by,Taweesak_Pahumunto,Warawan
+Location,Azure Cloud
+Result, ID, Name, Operation, Expect Value, Current Value
+PASS, 1_1_1, Create Separate Partition for /tmp, =, Partition /tmp shall be create separately, The /tmp partition exists in /etc/fstab
+PASS, 1_1_2, Set nodev option for /tmp Partition, =, Partition /tmp shall be set nodev option, The option nodev is already set for /tmp partition
+PASS, 1_1_3, Set nosuid option for /tmp Partition, =, Expect permission nosuid configured on /tmp, The option nosuid is already set for /tmp partition
+PASS, 1_1_4, Set noexec option for /tmp Partition, =, Expect permission noexec option configured on /tmp, The option noexec is already set for /tmp partition
+MANUAL, 1_1_5, Create Separate Partition for / var, =, Partition /var shall be create separately, The partition already separated for /var
+PASS, 1_1_6, Bind Mount the /var/tmp directory to /tmp, =, Partition /var/tmp shall be create separately, The partition already separated for /var/tmp
+MANUAL, 1_1_7, Create Separate Partition for /var/log, =, Partition /var/log shall be create separately, The partition already separated for /var/log
+MANUAL, 1_1_8, Create Separate Partition for /var/log/audit, =, Partition /var/log/audit shall be create separately, The partition already separated for /var/log/audit
+MANUAL, 1_1_9, Create Separate Partition for /home, =, Partition /home shall be create separately, The partition already separated for /home
+PASS, 1_1_10, Add nodev Option to /home, =, Edit or create a file in the /etc/fstab.conf directory ending in .conf with a line that reads install mount -o remount nodev /home, The option nodev is already set for /home partition
+PASS, 1_1_11, Add nodev Option to /dev/shm partition, =, Expect permission nodev configured on /dev/shm, The option nodev is already set for /dev/shm partition
+PASS, 1_1_12, Add nosuid Option to /dev/shm partition, =, Expect permission nosuid noexec configured on /dev/shm, The option nosuid is already set for /dev/shm partition
+PASS, 1_1_13, Add noexec Option to /dev/shm partition, =, Expect permission noexec configured on /dev/shm, The option noexec is already set for /dev/shm partition
+PASS, 1_1_14, Set Sticky Bit on All World-Writable Directories, =, Prevents the ability to delete or rename files in world writable directories that are owned by another user, Found sticky bit on world-writeable directories
+PASS, 1_1_15, Disable Mounting of cramfs Filesystem, =, The mounting cramfs filesystem shall be disabled, The filesystem cramfs is already disabled
+PASS, 1_1_16, Disable Mounting of freevxfs Filesystems, =, The mounting freevxfs filesystem shall be disabled, The filesystem freevxfs is already disabled
+PASS, 1_1_17, Disable Mounting of jffs2 Filesystems, =, The mounting jffs2 filesystem shall be disabled, The filesystem jffs2 is already disabled
+PASS, 1_1_18, Disable Mounting of hfs Filesystems, =, The mounting hfs filesystem shall be disabled, The filesystem hfs is already disabled
+PASS, 1_1_19, Disable Mounting of hfsplus Filesystems, =, The mounting hfsplus filesystem shall be disabled, The filesystem hfsplus is already disabled
+PASS, 1_1_20, Disable Mounting of squashfs Filesystems, =, The mounting squashfs filesystem shall be disabled, The filesystem squashfs is already disabled
+PASS, 1_1_21, Disable Mounting of udf Filesystems, =, The mounting udf filesystem shall be disabled, The filesystem udf is already disabled
+PASS, 1_1_22, Disable Automounting, =, autofs allows automatic mounting of devices should be disabled, The Automounting already disabled
+PASS, 1_2_1, Set User/Group Owner on boot loader configuration, =, Set User/Group Owner root:root, Owner on bootloader config is config
+PASS, 1_2_2, Set Permissions on boot loader configuration, =,  Set Permissions og-rwx, Permissions on bootloader config is config
+FAIL, 1_2_3, Require Authentication for Single-User Mode, =, Edit /usr/lib/systemd/system/rescue.service and /usr/lib/systemd/system/emergency.service and set ExecStart to use /sbin/sulogin or /usr/sbin/sulogin, The authentication is not required for single user mode
+PASS, 1_3_1, Restrict Core Dumps, =, Run the following command to set the active kernel parameter:# sysctl -w fs.suid_dumpable=0, The core dumps are restricted
+PASS, 1_3_2, Enable Randomized Virtual Memory Region Placement, =, Run the following command to set the active kernel parameter:# sysctl -w kernel.randomize_va_space=2, The address space layout randomization (ASLR) is enabled
+PASS, 1_3_3, Disable Prelink, =, Run command to restore binaries to normal prelink -ua and uninstall prelink using the appropriate package manager apt purge prelink, The prelink is not installed
+PASS, 2_1_1, Remove NIS service, =, Remove NIS service, The NIS Server is not installed
+PASS, 2_1_2, Remove rsh server, =, Remove rsh server, The rsh client is not installed
+PASS, 2_1_3, Remove rsh client, =, Remove rsh client, The rsh client is not installed
+PASS, 2_1_4, Remove talk server, =, Remove talk serverr, The talk server is not installed
+PASS, 2_1_5, Remove talk client, =, Remove talk client, The talk client is not installed
+PASS, 2_1_6, Remove telnet server, =, Remove telnet servert, The telnet server is not installed
+PASS, 2_1_7, Remove tftp server, =, Remove tftp server, The tftp server is not installed
+PASS, 2_1_8, Remove xinetd, =, Remove xinetd, The xinetd is not installed
+PASS, 2_1_9, Disable chargen service, =, Disable chargen service, chargen service is not installed
+PASS, 2_1_10, Disable daytime service, =, Disable daytime service, The daytime service is not installed
+PASS, 2_1_11, Disable echo service, =, Disable echo service, The echo service is not installed
+PASS, 2_1_12, Disable discard service, =, Disable discard service, The discard service is not installed
+PASS, 2_1_13, Disable time service, =, Disable time service, The time service is not installed
+PASS, 3_1_1, Remove X Windows, =, Remove X Windows, The X Windows is not installed
+PASS, 3_1_2, Disable Avahi Server, =, Disable Avahi Server, The Avahi Server is not installed
+PASS, 3_1_3, Disable Print Server – CUPS, =, Disable Print Server – CUPS, The Print Server – CUPS is not installed
+PASS, 3_1_4, Disable DHCP Server, =, Disable DHCP Server, The DHCP Server is not installed
+PASS, 3_1_5, Configure Network Time Protocol (NTP), =, Configure Network Time Protocol (NTP), The ntp is already configured
+PASS, 3_1_6, Disabled LDAP, =, Disabled LDAP, The rsh client is not installed
+PASS, 3_1_7, Disable NFS and RPC, =, Disable NFS and RPC, The NFS and RPC is not installed
+PASS, 3_1_8, Remove DNS Server, =, Remove DNS Server, The DNS Server is not installed
+PASS, 3_1_9, Remove FTP Server, =, Remove FTP Server, The FTP Server is not installed
+PASS, 3_1_10, Remove HTTP Server, =, Remove HTTP Server, The HTTP Server is not installed
+PASS, 3_1_11, Remove IMAP and POP server, =, Remove IMAP and POP server, The IMAP and POP server is not installed
+PASS, 3_1_12, Remove Samba daemon, =, Remove Samba daemon, The Samba daemon is not installed
+PASS, , RNA=Remove, HTTP, Proxy, Server
+PASS, 3_1_14, Remove SNMP Server, =, Remove SNMP Server, The SNMP Server is not installed
+PASS, , Disabled rsync, =, Disabled rsync, The rsync is not installed
+PASS, 3_1_16, Disabled Biosdevname, =, Disabled Biosdevname, The Biosdevname is not installed
+PASS, 3_1_17, Remove SSHPASSpackage, =, Remove SSHPASSpackage, The SSHPASSpackage is not installed
+PASS, 4_1_1, Disable IP Forwarding, =, Disable IP Forwarding, The IP forwarding is already disabled
+PASS, 4_1_2, Disable Send Packet Redirects, =, Disable Send Packet Redirectsg, The send_redirects all already configured
+PASS, 4_2_1, Disable Source Routed Packet Acceptance, =, Disable Source Routed Packet Acceptance, The IPv4 all accept source route is already disabled
+PASS, 4_2_2, Disable ICMP Redirect Acceptance, =, Disable ICMP Redirect Acceptance, The IPv4 all accept redirects route is already disabled
+PASS, 4_2_3, Disable Secure ICMP Redirect Acceptance, =, Disable Secure ICMP Redirect Acceptance, The IPv4 all accept secure redirects route is already disabled
+PASS, 4_2_4, Log Suspicious Packets, =, Log Suspicious Packets, The IPv4 all log martains is already logged
+PASS, 4_2_5, Enable Ignore Broadcast Requests, =, Enable Ignore Broadcast Requests, The IPv4 broadcast ICMP requests are already ignored
+PASS, 4_2_6, Enable Bad Error Message Protection, =, Enable Bad Error Message Protection, The bogus ICMP responses are already ignored
+PASS, 4_2_7, Enable RFC-recommended Source Route Validation, =, Enable RFC-recommended Source Route Validation, The Reverse Path Filtering is already enabled
+PASS, 4_2_8, Enable TCP SYN Cookies, =, Enable TCP SYN Cookies, The TCP SYN Cookies is already enabled
+PASS, 4_3_1, Disable IPv6, =, Disable IPv6, IPv6 is already disabled
+PASS, 5_1_1, Install and Enable auditd Service, =, Install and Enable auditd Service, The auditd is already installed
+PASS, 5_1_2, Enable Auditing for Processes That Start Prior to auditd, =, Enable Auditing for Processes That Start Prior to auditd, The auditing for processes that start prior to auditd is already enabled
+PASS, 5_1_3, Record Events That Modify Date and Time Information, =, Record Events That Modify Date and Time Information, Ensure login and logout events are collected
+PASS, 5_1_4, Record Events That Modify User/Group Information, =, Record Events That Modify User/Group Information, Ensure events that modify user/group information are collected
+PASS, 5_1_5, Record Events That Modify the System's Network Environment, =, Record Events That Modify the System's Network Environment, Ensure events that modify user/group information are collected
+PASS, 5_1_6, Ensure events that modify the system's Mandatory Access Controls are collected, =, Edit or create a file in the /etc/audit/rules.d/ directory ending in .rules and add the following lines:-w /etc/apparmor/ -p wa -k MAC-policy -w /etc/apparmor.d/ -p wa -k MAC-policy, The events that modify the system's Mandatory Access Controls are already collected
+PASS, 5_1_7, Collect Login and Logout Events, =, Collect Login and Logout Events, Ensure login and logout events are collected
+PASS, 5_1_8, Collect Session Initiation Information, =, Collect Session Initiation Information, Ensure session initiation information is collected
+PASS, 5_1_9, Collect Discretionary Access Control Permission Modification Events, =, Collect Discretionary Access Control Permission Modification Events, Ensure discretionary access control permission modification events are collected
+PASS, 5_1_10, Collect Unsuccessful Unauthorized Access Attempts to Files, =, Collect Unsuccessful Unauthorized Access Attempts to Files, Ensure discretionary access control permission modification events are collected
+PASS, 5_1_11, Collect Successful File System Mounts, =, Collect Successful File System Mounts, Ensure successful file system mounts are collected
+PASS, 5_1_12, Collect File Deletion Events by User, =, Collect File Deletion Events by User, Ensure file deletion events by users are collected
+PASS, 5_1_13, Collect Changes to System Administration Scope, =, Collect Changes to System Administration Scope, The changes to system administration scope (sudoers) is already collected
+PASS, 5_1_14, Collect System Administrator Actions (sudolog), =, Collect System Administrator Actions (sudolog), The changes to system administration scope (sudoers) is already collected
+PASS, 5_1_15, Collect Kernel Module Loading and Unloading, =, Collect Kernel Module Loading and Unloading, The Kernel Module Loading and Unloading are already collected
+PASS, 5_1_16, Make the Audit Configuration Immutable, =, Make the Audit Configuration Immutable, The audit configuration is already immutable
+PASS, 5_2_1, Install the rsyslog package, =, Install the rsyslog package, The rsyslog is already installed
+PASS, 5_2_2, Activate the rsyslog Service, =, Activate the rsyslog Service, The rsyslog Service is already enabled
+PASS, 5_2_3, Create and Set Permissions on rsyslog Log Files, =, Create and Set Permissions on rsyslog Log Files, The rsyslog default file permissions is already configured
+PASS, 5_2_4, Configure rsyslog to Send Logs to a Remote Log Host, =, Configure rsyslog to Send Logs to a Remote Log Host, The rsyslog is already configured to send logs to a remote log host
+PASS, 6_1_2, Set User/Group Owner and Permission on /etc/crontab, =, Set User/Group Owner and Permission on /etc/crontab, The permissions on /etc/crontab are already configured
+PASS, 6_1_3, User/Group Owner and Permission on /etc/cron.daily, =, User/Group Owner and Permission on /etc/cron.daily, The permissions on /etc/cron.daily are already configured
+PASS, 6_1_4, Set User/Group Owner and Permission on /etc/cron.weekly, =, Set User/Group Owner and Permission on /etc/cron.weekly, The permissions on /etc/cron.weekly are already configured
+PASS, 6_1_5, Set User/Group Owner and Permission on /etc/cron.monthly, =, Set User/Group Owner and Permission on /etc/cron.monthly, The permissions on /etc/cron.monthly are already configured
+PASS, 6_1_6, Set User/Group Owner and Permission on /etc/cron.d, =, Set User/Group Owner and Permission on /etc/cron.d, The permissions on /etc/cron.d are already configured
+PASS, 6_1_7, Restrict at/cron to Authorized Users, =, Restrict at/cron to Authorized Users, The permissions at/cron to Authorized Users are already configured
+PASS, 6_2_1, Set Password Creation Requirement Parameters, =, Set Password Creation Requirement Parameters, The pam_pwquality module is already used
+PASS, 6_2_2, Set Lockout for Failed Password Attempts, =, Set Lockout for Failed Password Attempts, The lockout for failed password attempts is already configured
+PASS, 6_2_3, Limit Password Reuse, =, Limit Password Reuse, The password reuse is alraedy limited
+PASS, 6_3_1, Set SSH Protocol to 2, =, Set SSH Protocol to 2, Set SSH Protocol to 2 is already
+PASS, 6_3_2, Set LogLevel to INFO, =, Set LogLevel to INFO, The SSH LogLevel is already appropriated
+PASS, 6_3_3, Set Permissions on /etc/ssh/sshd_config, =, Set Permissions on /etc/ssh/sshd_config, The permissions on /etc/ssh/sshd_config are already configured
+PASS, 6_3_4, Disable SSH X11 Forwarding, =, Disable SSH X11 Forwarding, The SSH X11 forwarding is already disabled
+PASS, 6_3_5, Set SSH MaxAuthTries to 5 or Less, =, Set SSH MaxAuthTries to 5 or Less, The SSH MaxAuthTries is already set to 5 or less
+PASS, 6_3_6, Set SSH IgnoreRhosts to Yes, =, Set SSH IgnoreRhosts to Yes, The SSH IgnoreRhosts is already enabled
+PASS, 6_3_7, Set SSH HostbasedAuthentication to No, =, Set SSH HostbasedAuthentication to No, The SSH HostbasedAuthentication is already disabled
+PASS, 6_3_8, Disable SSH Root Login, =, Disable SSH Root Login, The SSH root login is already disabled
+PASS, 6_3_9, Set SSH PermitEmptyPasswords to No, =, Set SSH PermitEmptyPasswords to No, The SSH PermitEmptyPasswords is already disabled
+PASS, 6_3_10, Do Not Allow Users to Set Environment Options, =, Do Not Allow Users to Set Environment Options, The SSH PermitUserEnvironment is already disabled
+PASS, 6_3_11, Use Only Approved Cipher in Counter Mode, =, Use Only Approved Cipher in Counter Mode, The only strong Ciphers are already used
+PASS, 6_3_12, Set Idle Timeout Interval for User Login, =, Set Idle Timeout Interval for User Login, The SSH Idle Timeout Interval is already configured
+PASS, 6_3_13, Set SSH Banner, =, Set SSH Banner, The SSH warning banner is already configured
+PASS, 7_1_1, Set Password Expiration Days, =, Set Password Expiration Days, The password expiration is already set to 90 days or less
+PASS, 7_1_2, Set Password Change Minimum Number of Days, =, Set Password Change Minimum Number of Days, The minimum days between password changes is already configured
+PASS, 7_1_3, Set Password Expiring Warning Days, =, Set Password Expiring Warning Days, The password expiration warning days is already 7 or more
+PASS, 7_2, Disable System Accounts, =, Disable System Accounts, The rsh client is not installed
+PASS, 7_3, Set Default Group for root Account, =, Set Default Group for root Account, The default group for the root account is GID 0
+PASS, 7_4, Set Default umask for Users, =, Set Default umask for Users, The default group for the root account is GID 0
+PASS, 8_1_1, Set Warning Banner for Standard Login Services, =, Set Warning Banner for Standard Login Services, The permissions on /etc/motd are configured
+PASS, 8_1_2, Remove OS Information from Login Warning Banners, =, Remove OS Information from Login Warning Banners, Already Remove OS Information from Login Warning Banners
+PASS, 9_1_1, Verify Permissions on /etc/passwd, =, Verify Permissions on /etc/passwd, The permissions on /etc/passwd are configured
+PASS, 9_1_2, Verify Permissions on /etc/shadow, =, Verify Permissions on /etc/shadow, The permissions on /etc/shadow are configured
+PASS, 9_1_3, Verify Permissions on /etc/group, =, Verify Permissions on /etc/group, The permissions on /etc/group are configured
+PASS, 9_1_4, Verify User/Group Ownership on /etc/passwd, =, Verify User/Group Ownership on /etc/passwd, The Ownership on /etc/passwd are configured
+PASS, 9_1_5, Verify User/Group Ownership on /etc/shadow, =, Verify User/Group Ownership on /etc/shadow, The Ownership on /etc/shadow are configured
+PASS, 9_1_6, Verify User/Group Ownership on /etc/group, =, Verify User/Group Ownership on /etc/group, The Ownership on /etc/group are configured
+PASS, 9_1_7, Find World Writable Files, =, Find World Writable Files, Find World already Writable Files
+PASS, 9_1_8, Find Un-owned Files and Directories, =, Find Un-owned Files and Directories, Find already Un-owned Files and Directories
+PASS, 9_1_9, Find Un-grouped Files and Directories, =, Find Un-grouped Files and Directories, Find already Un-grouped Files and Directories
+MANUAL, 9_1_10, Find SUID System Executable, =, Find SUID System Executable, requires manual remediation
+MANUAL, 9_1_11, Find SGID System Executable, =, Find SGID System Executable, requires manual remediation
+PASS, 10_1_1, Ensure Password Fields are Not Empty, =, Ensure Password Fields are Not Empty, The password fields are not empty
+PASS, 10_1_2, Verify No Legacy + Entries Exist in /etc/passwd File, =, Verify No Legacy + Entries Exist in /etc/passwd File, The default group for the root account is GID 0
+PASS, 10_1_3, Verify No Legacy + Entries Exist in /etc/shadow File, =, Verify No Legacy + Entries Exist in /etc/shadow File, The default group for the root account is GID 0
+PASS, 10_1_4, Verify No Legacy + EntriesExist in /etc/group File, =, Verify No Legacy + EntriesExist in /etc/group File, The Verify is not Legacy + EntriesExist in /etc/group File
+PASS, 10_1_5, Verify No UID 0 Accounts Exist Other Than root, =, Verify No UID 0 Accounts Exist Other Than root, Already Verify No UID 0 Accounts Exist Other Than root
+MANUAL, 10_1_6, Ensure root PATH Integrity, =, Ensure root PATH Integrity, requires manual remediation
+PASS, 10_1_7, Check Permissions on User Home Directories, =, Check Permissions on User Home Directories, The users are already own their home directories
+PASS, 10_1_8, Check User Dot File Permissions, =, Check User Dot File Permissions, Users dot files are not group or world writable
+PASS, 10_1_9, Check for Presence of User .rhosts Files, =, Check for Presence of User .rhosts Files, No users have .rhosts files
+PASS, 10_1_10, Check Groups in /etc/passwd, =, Check Groups in /etc/passwd, The all groups in /etc/passwd is already existed in /etc/group
+PASS, 10_1_11, Check That Users Are Assigned Valid Home Directories, =, Check That Users Are Assigned Valid Home Directories, The users are already own their home directories
+PASS, 10_1_12, Check User Home Directory Ownership, =, Check User Home Directory Ownership, The users are already own their home directoriesThe users are already own their home directories
+PASS, 10_1_13, Check for Duplicate UIDS, =, Check for Duplicate UIDS, No duplicate UIDs existNo duplicate UIDs exist
+PASS, 10_1_14, Check for Duplicate GIDs, =, Check for Duplicate GIDs, No duplicate GIDs existdNo duplicate GIDs existd
+PASS, 10_1_15, Check for Duplicate User Names, =, Check for Duplicate User Names, No duplicate user names existNo duplicate user names exist
+PASS, 10_1_16, Check for Duplicate Group Names, =, Check for Duplicate Group Names, No duplicate group names existNo duplicate group names exist
+PASS, 10_1_17, Check for Presence of User .netrc Files, =, Check for Presence of User .netrc Files, No users have .netrc filesNo users have .netrc files
+MANUAL, 10_1_18, Ensure shadow group is empty, =, Ensure shadow group is empty, The shadow group is not emptyThe shadow group is not empty
